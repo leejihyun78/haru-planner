@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>킹클 하루 플래닝</title> <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-layout">
+        <div class="container">
+            <div id="currentDate"></div>
+
+            <h1 class="text-2xl font-bold">킹클 하루 플래닝</h1>
+
+            <div class="input-area">
+                <input type="time" id="taskTime"> <input type="text" id="taskInput" placeholder="새 일정을 입력하세요"> <button id="addTaskBtn">추가</button> </div>
+
+            <ul id="taskList">
+                </ul>
+        </div>
+
+        <div class="feedback-section">
+            <h2>하루 피드백</h2>
+
+            <div id="feedbackInputArea" class="feedback-input-area">
+                <textarea id="feedbackTextarea" placeholder="오늘 하루 피드백을 작성하세요."></textarea> <div class="feedback-buttons">
+                     <button id="saveFeedbackBtn">저장</button> <button id="cancelFeedbackEditBtn" class="action-btn delete-btn hidden">취소</button>
+                </div>
+            </div>
+
+            <div id="feedbackDisplayArea" class="feedback-display-area hidden">
+                <p id="savedFeedbackText"></p> <div class="feedback-actions">
+                     <button id="editFeedbackBtn" class="action-btn edit-btn">수정</button> <button id="deleteFeedbackBtn" class="action-btn delete-btn">삭제</button> </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

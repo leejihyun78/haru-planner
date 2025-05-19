@@ -1,0 +1,270 @@
+/* Custom styles for a better overall layout and appearance */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e2e8f0; /* Lighter background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Main layout container using Flexbox */
+.main-layout {
+    display: flex;
+    flex-direction: column; /* Stack columns vertically by default */
+    gap: 20px; /* Space between sections */
+    width: 100%;
+    max-width: 1000px; /* Increased max width for side-by-side layout */
+}
+
+/* Media query for larger screens to enable side-by-side layout */
+@media (min-width: 768px) { /* md breakpoint in Tailwind */
+    .main-layout {
+        flex-direction: row; /* Arrange columns horizontally on larger screens */
+    }
+    .container, .feedback-section {
+        flex: 1; /* Each section takes equal width */
+    }
+}
+
+
+.container, .feedback-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure sections take full width within flex item */
+}
+
+/* Style for the date display */
+#currentDate {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center; /* Center the date */
+}
+
+.container h1, .feedback-section h2 {
+     text-align: center;
+     margin-bottom: 20px;
+     color: #2d3748; /* Darker title color */
+}
+
+
+/* --- Task List Styles --- */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #ebf4ff; /* Lighter, colored border */
+    transition: background-color 0.2s ease;
+}
+.task-item:last-child {
+    border-bottom: none;
+}
+.task-item:hover {
+     background-color: #f7fafc; /* Very slight hover effect */
+}
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.task-time {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #4a5568; /* Slightly darker time color */
+    min-width: 60px;
+}
+.task-text {
+    word-break: break-word;
+}
+.completed .task-text {
+    text-decoration: line-through;
+    color: #a0aec0; /* Lighter color for completed tasks */
+}
+.task-actions {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+.action-btn {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease, opacity 0.2s ease; /* Add opacity transition */
+    opacity: 0.8; /* Slightly transparent by default */
+}
+ .action-btn:hover {
+     opacity: 1; /* Fully opaque on hover */
+ }
+.delete-btn {
+    background-color: #f56565; /* Red */
+    color: white;
+}
+.delete-btn:hover {
+    background-color: #e53e3e; /* Darker red */
+}
+.edit-btn {
+    background-color: #f6e05e; /* Yellow */
+    color: #2d3748;
+}
+.edit-btn:hover {
+    background-color: #ecc94b; /* Darker yellow */
+}
+ .check-btn {
+    background-color: #68d391; /* Green */
+    color: white;
+}
+.check-btn:hover {
+    background-color: #48bb78; /* Darker green */
+}
+.input-area {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.input-area input[type="text"],
+.input-area input[type="time"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #cbd5e0; /* Lighter border */
+    border-radius: 6px;
+    font-size: 1rem;
+    min-width: 100px;
+}
+.input-area input[type="time"] {
+     flex-grow: 0;
+     max-width: 150px;
+}
+.input-area button {
+    background-color: #63b3ed; /* Blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+ .input-area button:hover {
+    background-color: #4299e1; /* Darker blue */
+}
+
+/* Styles for task item edit mode */
+.edit-mode .task-content,
+.edit-mode .task-actions {
+    display: none;
+}
+ .edit-mode .edit-input-area {
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.edit-input-area input[type="text"],
+.edit-input-area input[type="time"] {
+     flex-grow: 1;
+     padding: 5px;
+     border: 1px solid #cbd5e0;
+     border-radius: 4px;
+     font-size: 0.9rem;
+     min-width: 80px;
+}
+ .edit-input-area input[type="time"] {
+     flex-grow: 0;
+     max-width: 120px;
+}
+.save-btn {
+    background-color: #68d391; /* Green */
+    color: white;
+}
+.save-btn:hover {
+    background-color: #48bb78; /* Darker green */
+}
+
+/* --- Feedback Section Styles --- */
+.feedback-section {
+    /* Styles already defined in .container, .feedback-section */
+}
+.feedback-section h2 {
+    /* Styles already defined in .container h1, .feedback-section h2 */
+}
+.feedback-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.feedback-input-area textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0; /* Lighter border */
+    border-radius: 6px;
+    font-size: 1rem;
+    min-height: 150px;
+    resize: vertical;
+}
+.feedback-input-area .feedback-buttons {
+     display: flex;
+     justify-content: flex-end;
+     gap: 10px;
+}
+.feedback-input-area button {
+     background-color: #63b3ed; /* Blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+.feedback-input-area button:hover {
+    background-color: #4299e1; /* Darker blue */
+}
+.feedback-display-area {
+    border: 1px solid #ebf4ff; /* Lighter, colored border */
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #f7fafc; /* Very light background */
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.feedback-display-area p {
+     margin-bottom: 15px;
+     color: #4a5568; /* Darker text color */
+}
+.feedback-display-area .feedback-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.feedback-display-area .action-btn {
+     padding: 5px 10px;
+     font-size: 0.8rem;
+}
+
+/* Styles for feedback edit mode */
+.feedback-edit-mode .feedback-display-area {
+    display: none;
+}
+.feedback-edit-mode .feedback-input-area {
+     display: flex;
+}
+
+
+/* Hide/Show based on state */
+.hidden {
+    display: none;
+}
+
